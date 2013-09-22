@@ -6,12 +6,14 @@ public class Main {
 
 
 	public static void main(String[] args) {
-		
+		agenda.addElement("Mike", "345345", "mike@gmail.com");
+		agenda.addElement("Mike2", "345345", "mik2e@gmail.com");
 		agenda.findIndex(search, agenda.names);
 		agenda.findIndex(search, agenda.phones);
 		agenda.findIndex(search, agenda.emails);
 
 	
+		//agenda.listAgenda();
 
 	}
 

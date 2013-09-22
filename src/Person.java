@@ -2,7 +2,7 @@
 
 public class Person {
 	private String name="John";
-	private String phone="054645634";
+	private String phone="0546434";
 	private String email="John@gmail.com";
 	
 	public Person(){
@@ -20,19 +20,18 @@ public class Person {
 		return email;
 	}
 	
-	public String[] listPerson() {
-		System.out.println(name + "  " + "  " + phone+ "  " + email);
-		return new String[] {name, phone, email};
-	}
-	
-
-	
-
-	@Override
-	public String toString() {
-		// TODO Auto-generated method stub
-		return super.toString();
-	}
+//	public String[] listPerson() {
+//		System.out.println(name + "  " + "  " + phone+ "  " + email);
+//		return new String[] {name, phone, email};
+//	}
+//	
+//	
+//
+//	@Override
+//	public String toString() {
+//		// TODO Auto-generated method stub
+//		return super.toString();
+//	}
 	public void setPhone(String phone){
 		this.phone = phone;
 	}
