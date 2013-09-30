@@ -1,18 +1,24 @@
 import java.util.Scanner;
 
 public class Main {
-	public static String search = scan("Enter search parameter: ");
+//	public static String search = scan("Enter search parameter: ");
 	public static Agenda agenda = new Agenda();
 
 
 	public static void main(String[] args) {
-		agenda.addElement("Mike", "345345", "mike@gmail.com");
-		agenda.addElement("Mike2", "345345", "mik2e@gmail.com");
-		agenda.findIndex(search, agenda.names);
-		agenda.findIndex(search, agenda.phones);
-		agenda.findIndex(search, agenda.emails);
+		agenda.addElement("Mike", "676767", "mike@gmail.com");
+		agenda.addElement("imba2", "345345", "imbae@gmail.com");
+	//	agenda.listAgenda();
+
+//		agenda.searchElement(search, agenda.names);
+//		agenda.searchElement(search, agenda.phones);
+//		agenda.searchElement(search, agenda.emails);
 
 	
+		//agenda.deleteElement("mike");
+		//agenda.listAgenda();
+		//agenda.updateElement("mike", agenda.names, "peter");
+		agenda.deleteElement("mike");
 		//agenda.listAgenda();
 
 	}

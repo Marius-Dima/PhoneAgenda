@@ -13,6 +13,14 @@ public class Agenda {
 		//addElement("Mike", "345345", "mike@gmail.com");
 	}
 	
+	public void listAgenda(){
+		System.out.println("Name:" + "\t\t" + "Phone:" + "\t\t" + "Email:");
+
+		for (int i=0; i<entryNumber; i++){
+	    	System.out.println(names[i] + "\t\t" + phones[i] + "\t\t" + emails[i]);
+		}
+}
+		
 	public void addElement(String new_name, String new_phone, String new_email){
 		//int lenght = names.length;
 		String[] addname = new String[entryNumber+1];
@@ -33,16 +41,6 @@ public class Agenda {
 			entryNumber++;
 	}
 	
-	public void listAgenda(){
-		System.out.println("Name:" + "\t\t" + "Phone:" + "\t\t" + "Email:");
-
-		for (int i=0; i<entryNumber; i++){
-	    	System.out.println(names[i] + "\t\t" + phones[i] + "\t\t" + emails[i]);
-		}
-		
-	}
-	
-
 	
 	public String searchNumber(String num){
     	String found=null;
@@ -57,7 +55,7 @@ public class Agenda {
             
         }
 	
-	public void findIndex(String search, String[] array){
+	public void searchElement(String search, String[] array){
 		
 	int index = -1;
 
@@ -75,18 +73,41 @@ public class Agenda {
     
 	}
 	
-	public void editElement(String element_old, String update){
-    	for(int i=0; i<phones.length;i++){
-            if(phones[i] != null){
-                if(phones[i].equals(element_old)){
-                	phones[i]=update;
-                	//p.setPhone(phones[i]);
-               
-                }
-            }
-        }
-	}
 
+	public void updateElement(String search, String[] array, String update){
+		
+	int index = -1;
+
+    for (int i = 0; (i < array.length) && (index == -1); i++) {
+        if (array[i].equalsIgnoreCase(search)) {
+            index = i;
+        }
+    }
+    if (index != -1){
+    	array[index]=update;
+    }
+    else{
+    	System.out.println(search + " was not found!");}
+    
+	}
+	
+	
+	public void deleteElement(String removed){
+        String[] del = new String[entryNumber-1];
+        System.out.println("Name:" + "\t\t" + "Phone:" + "\t\t" + "Email:");
+
+		for (int i = 0; i < entryNumber-1; i++) {
+	        if (names[i].equalsIgnoreCase(removed) || phones[i].equalsIgnoreCase(removed) || emails[i].equalsIgnoreCase(removed) ) {
+	        	i++;
+	        }
+	        else{
+	        	System.out.println("Term to remove was not found!");
+	        }
+	    	System.out.println(names[i] + "\t\t" + phones[i] + "\t\t" + emails[i]);
+
+		}
+		entryNumber--;
+	}
 	
 	
 	public void addName(String added) {
