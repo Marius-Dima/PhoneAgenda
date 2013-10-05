@@ -1,125 +1,111 @@
 
 public class Agenda {
 	
-	Person p = new Person();
-	public String[] names = new String[]{p.getName()};
-	public String[] phones = new String[]{p.getPhone()};
-	public String[] emails = new String[]{p.getEmail()};
-	public static int entryNumber = 1;
-	
+	public static Person p1 = new Person("John", 7878978, "john@gmail.com");
+	Person p2 = new Person("Mike", 1231232, "mike@gmail.com");
+
+	public static Person[] agenda = new Person[]{p1};
+	public static int l = agenda.length;
+
 
 	public Agenda(){
-		//findIndex("nameless", names);
-		//addElement("Mike", "345345", "mike@gmail.com");
+	}
+	
+	public void addPerson(Person p){
+		Person[] agenda2 = new Person[l+1];
+		for (int i=0; i<l; i++){
+			agenda2[i]=agenda[i];
+		}
+			agenda2[l]=p;
+			agenda=agenda2;
+			l++;
 	}
 	
 	public void listAgenda(){
 		System.out.println("Name:" + "\t\t" + "Phone:" + "\t\t" + "Email:");
-
-		for (int i=0; i<entryNumber; i++){
-	    	System.out.println(names[i] + "\t\t" + phones[i] + "\t\t" + emails[i]);
+    	for (Person p : agenda) {
+    		if (p != null)
+			System.out.println(p.toString());
+	   		else
+			l--;
+    	}
+    	System.out.println("Contacts total: " + l);
+	}
+	
+	public void findPerson(String searched){
+    	Person found = null;
+    	for (Person p : agenda) {
+    		if (p != null) 
+    			if ((p.getName().equalsIgnoreCase(searched)) || ((p.getEmail().equalsIgnoreCase(searched))))
+    				found = p;
+    		}
+    	if (found != null)
+    		System.out.println(found.toString());
+    	else
+    		System.out.println("Person \"" + searched + "\" was not found in this Agenda!");
+	}
+	
+	public void findPerson(int phone){
+    	Person found = null;
+    	for (Person p : agenda) {
+    		if ((p != null) && ((p.getPhone() == phone)))
+    			found = p;
+    		}
+    	if (found != null)
+    		System.out.println(found.toString());
+    	else
+    		System.out.println("Number \"" + phone + "\" was not found in this Agenda!");
+	}
+	
+	public void editPerson(String name, int updatePhone){
+		Person found = null;
+		for (Person p : agenda) {
+			if ((p != null) && (p.getName().equalsIgnoreCase(name))){
+				p.setPhone(updatePhone);
+				found = p;
+			}
 		}
+		if (found != null)
+			agenda.toString();    	
+		else
+    		System.out.println("Person \"" + name + "\" was not found in this Agenda!");
+	}
+	
+	public void editPerson(String name, String updateName){
+		Person found = null;
+		for (Person p : agenda) {
+			if ((p != null) && (p.getName().equalsIgnoreCase(name))){
+				p.setName(updateName);
+				found = p;
+			}
+		}
+		if (found != null)
+			p1.toString();    	
+		else
+    		System.out.println("Person \"" + name + "\" was not found in this Agenda!");
+	}
+	
+	public void deletePerson(String name){
+		Person found = null;
+		for (Person p : agenda) {
+			if ((p != null) && (p.getName().equalsIgnoreCase(name))){
+				found = p;
+//				p.setName(null);
+//				p.setPhone(0);
+//				p.setEmail(null);
+				p = null;
+				l--;
+			}
+			if (p != null)
+				System.out.println(p.toString());
+		}
+		if (found == null)
+			System.out.println("The person to delete: \"" + name + "\" was not found!");
+			System.out.println("Contacts total: " + l);
+	}
+		
 }
-		
-	public void addElement(String new_name, String new_phone, String new_email){
-		//int lenght = names.length;
-		String[] addname = new String[entryNumber+1];
-		String[] addphone = new String[entryNumber+1];
-		String[] addemail = new String[entryNumber+1];
-		
-		for (int i=0; i<entryNumber; i++){
-			addname[i]=names[i];
-			addphone[i]=phones[i];
-			addemail[i]=emails[i];
-		}
-			addname[entryNumber]=new_name;
-			addphone[entryNumber]=new_phone;
-			addemail[entryNumber]=new_email;
-			names=addname;
-			phones=addphone;
-			emails=addemail;
-			entryNumber++;
-	}
-	
-	
-	public String searchNumber(String num){
-    	String found=null;
-    	for(int i=0; i<phones.length;i++){
-                if(phones[i] != null){
-                    if(phones[i].equals(num)){
-                    	found=phones[i];
-                    }
-                }
-            }
-            return found;
-            
-        }
-	
-	public void searchElement(String search, String[] array){
-		
-	int index = -1;
-
-    for (int i = 0; (i < array.length) && (index == -1); i++) {
-        if (array[i].equalsIgnoreCase(search)) {
-            index = i;
-        }
-    }
-    if (index != -1){
-    	System.out.println("Name:" + "\t\t" + "Phone:" + "\t\t" + "Email:");
-    	System.out.println(names[index] + "\t\t" + phones[index] + "\t\t" + emails[index]);
-    }
-    else{
-    	System.out.println(search + " was not found!");}
-    
-	}
 	
 
-	public void updateElement(String search, String[] array, String update){
-		
-	int index = -1;
-
-    for (int i = 0; (i < array.length) && (index == -1); i++) {
-        if (array[i].equalsIgnoreCase(search)) {
-            index = i;
-        }
-    }
-    if (index != -1){
-    	array[index]=update;
-    }
-    else{
-    	System.out.println(search + " was not found!");}
-    
-	}
-	
-	
-	public void deleteElement(String removed){
-        String[] del = new String[entryNumber-1];
-        System.out.println("Name:" + "\t\t" + "Phone:" + "\t\t" + "Email:");
-
-		for (int i = 0; i < entryNumber-1; i++) {
-	        if (names[i].equalsIgnoreCase(removed) || phones[i].equalsIgnoreCase(removed) || emails[i].equalsIgnoreCase(removed) ) {
-	        	i++;
-	        }
-	        else{
-	        	System.out.println("Term to remove was not found!");
-	        }
-	    	System.out.println(names[i] + "\t\t" + phones[i] + "\t\t" + emails[i]);
-
-		}
-		entryNumber--;
-	}
-	
-	
-	public void addName(String added) {
-		int lenght = names.length;
-		String[] new_name = new String[lenght+1];
-		
-		for (int i=0; i < lenght;i++){
-			new_name[i]=names[i];
-		}
-		new_name[lenght]=added;
-		names = new_name;
-	}
-}
 
 

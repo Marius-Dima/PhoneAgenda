@@ -1,14 +1,17 @@
 
 
 public class Person {
-	private String name="John";
-	private String phone="0546434";
-	private String email="John@gmail.com";
+	private String name;
+	private int phone;
+	private String email;
 	
-	public Person(){
-
+	public Person(String name, int phone, String email){
+		this.name = name;
+		this.phone = phone;
+		this.email = email;
+				
 	}
-	public String getPhone(){
+	public int getPhone(){
 		return this.phone;
 	}
 	
@@ -19,20 +22,13 @@ public class Person {
 	public String getEmail(){
 		return email;
 	}
-	
-//	public String[] listPerson() {
-//		System.out.println(name + "  " + "  " + phone+ "  " + email);
-//		return new String[] {name, phone, email};
-//	}
-//	
-//	
-//
-//	@Override
-//	public String toString() {
-//		// TODO Auto-generated method stub
-//		return super.toString();
-//	}
-	public void setPhone(String phone){
+
+	@Override
+	public String toString() {
+	return name + "\t\t" + phone + "\t\t" + email;
+	}
+
+	public void setPhone(int phone){
 		this.phone = phone;
 	}
 	
