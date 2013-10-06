@@ -1,4 +1,9 @@
 
+/**
+ * This is the main class for the Phone Agenda
+ * @author Marius Dima
+ * @version 1.1
+ */
 public class Main {
 	
 	public static Agenda agenda = new Agenda();
@@ -22,6 +27,7 @@ public class Main {
 		System.out.println("\t Testing the editPerson() method");
 		
 		agenda.editPerson("mike", 5555555);
+		agenda.editPerson("mike2", 5555555);
 		agenda.editPerson("mike", "mike2");
 		agenda.listAgenda();
 		
@@ -29,16 +35,14 @@ public class Main {
 		System.out.println("\t Testing the detelePerson() method");
 		
 		agenda.deletePerson("mike2");
-//		agenda.deletePerson("other");
+	//	agenda.deletePerson("John");
+	//	agenda.deletePerson("mike4354");
 
 		System.out.println();
 		System.out.println("Final listing: ");
 		agenda.listAgenda();
-
 	}
-
-
-	}
+}
 	
 
 

@@ -1,10 +1,15 @@
 
-
 public class Person {
 	private String name;
 	private int phone;
 	private String email;
 	
+	/**
+	 * This is the constructor method for the Person class
+	 * @param name
+	 * @param phone
+	 * @param email
+	 */
 	public Person(String name, int phone, String email){
 		this.name = name;
 		this.phone = phone;
@@ -39,7 +44,6 @@ public class Person {
 	public void setEmail(String email){
 		this.email = email;
 	}
-
 
 }
 
